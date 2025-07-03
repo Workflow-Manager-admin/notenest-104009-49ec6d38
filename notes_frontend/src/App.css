@@ -1,0 +1,271 @@
+/* CSS Variables for Theme Management */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #282c34;
+  --text-secondary: #61dafb;
+  --border-color: #e9ecef;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+}
+
+/* CSS Variables for Theme Management */
+:root {
+  /* Light theme colors */
+  --bg-primary: #eaf0fa;
+  --bg-secondary: #ffffffcc;
+  --text-primary: #282c34;
+  --text-secondary: #61dafb;
+  --border-color: rgba(40,44,52, 0.09);
+  --button-bg: #1976d2;
+  --button-text: #ffffff;
+  --glass-blur: 24px;
+  --glass-bg: rgba(255, 255, 255, 0.35);
+  --glass-border: rgba(255,255,255,0.16);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+  --icon-glow: 0 0 8px #1976d278;
+  --focus-outline: 2px solid #71b7ff;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: linear-gradient(135deg, #1A1A1A 0%, #22223b 100%);
+  --bg-secondary: rgba(34, 34, 59, 0.6);
+  --text-primary: #ffffff;
+  --text-secondary: #ffb300;
+  --border-color: rgba(255,255,255,0.08);
+  --button-bg: #424242;
+  --button-text: #ffb300;
+  --glass-blur: 24px;
+  --glass-bg: rgba(29, 29, 50, 0.30);
+  --glass-border: rgba(255,255,255,0.09);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.24);
+  --icon-glow: 0 0 10px #ffb30082;
+  --focus-outline: 2px solid #ffb30099;
+}
+
+body, html {
+  background: var(--bg-primary);
+  transition: background 0.45s;
+}
+
+.App {
+  text-align: center;
+  background: none;
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.35s, color 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.glassy {
+  margin: 4vh auto;
+  max-width: 440px;
+  min-width: 270px;
+  padding: 50px 2.2em 2.5em 2.2em;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: 2em;
+  border: 1.2px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: background 0.35s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 70vh;
+  position: relative;
+}
+
+.logo-glass-container {
+  background: rgba(255,255,255,0.23);
+  border-radius: 50%;
+  padding: 1em;
+  border: 1.2px solid var(--glass-border);
+  margin-bottom: 0.8em;
+  box-shadow: 0 2px 16px #1976d223;
+  transition: background 0.35s;
+  display: inline-block;
+}
+
+.App-logo {
+  height: 70px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px #61dafb23);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.subtitle {
+  font-size: 1.08em;
+  margin-bottom: 2em;
+  color: var(--text-secondary);
+  opacity: 0.86;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+.App-link {
+  color: var(--text-secondary);
+  transition: color 0.3s;
+  margin-top: 2.7em;
+  font-size: 1.01em;
+}
+
+.theme-indicator {
+  margin: 10px 0 2.1em 0;
+  font-size: 0.96em;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+
+/* Glassy Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 9px;
+  padding: 10px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.22s;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+  z-index: 2;
+  outline: none;
+}
+.theme-toggle:focus-visible {
+  outline: var(--focus-outline);
+}
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31, 38, 135, 0.09);
+  opacity: 0.925;
+}
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+/* Add Note Button (Glassy, Accessible, Prominent) */
+.add-note-btn {
+  margin-top: 1.45em;
+  background: linear-gradient(90deg, var(--button-bg) 65%, #61dafbd9 100%);
+  color: var(--button-text);
+  border: none;
+  border-radius: 18px;
+  font-size: 1.16em;
+  font-weight: 700;
+  padding: 0.85em 2.4em 0.85em 1.5em;
+  box-shadow: 0 4px 28px 0 rgba(36, 107, 253, 0.17);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.77em;
+  cursor: pointer;
+  transition: background 0.25s, box-shadow 0.22s, color 0.21s;
+  outline: none;
+  position: relative;
+  border: 1.5px solid var(--border-color);
+}
+.add-note-btn:focus-visible {
+  outline: var(--focus-outline);
+  background: linear-gradient(95deg, #71b7ff 52%, #009fe333 100%);
+}
+.add-note-btn:active {
+  background: linear-gradient(90deg, #2559c6 60%, #47caf3a7 100%);
+}
+.add-note-btn:hover {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  opacity: 0.98;
+}
+.add-icon {
+  font-size: 1.37em;
+  font-weight: 900;
+  background: #fff3;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  margin-right: 0.25em;
+  color: var(--button-text);
+  box-shadow: var(--icon-glow);
+  transition: box-shadow 0.25s;
+}
+.btn-label {
+  font-size: 1.06em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 480px) {
+  .glassy {
+    max-width: 99vw;
+    min-width: 0;
+    padding: 24px 2vw 2vw 2vw;
+    border-radius: 1.25em;
+  }
+  .logo-glass-container {
+    padding: 0.44em;
+    margin-bottom: 0.5em;
+  }
+  .App-logo {
+    height: 48px;
+  }
+  .theme-toggle {
+    top: 10px;
+    right: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    border-radius: 7px;
+  }
+  .add-note-btn {
+    font-size: 1.01em;
+    padding: 0.58em 1.3em 0.58em 1.2em;
+  }
+  .add-icon {
+    font-size: 1.01em;
+    width: 1.6em;
+    height: 1.6em;
+  }
+}
+
+/* Hide logo container on small screens if needed */
+@media (max-width: 340px) {
+  .logo-glass-container { display: none; }
+}
+
+/* Spinner (logo) */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
